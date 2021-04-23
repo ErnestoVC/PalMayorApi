@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git credentialsId: 'netdeployer', url: 'https://github.com/ErnestoVC/PalMayorApi', branch: 'master'
+        git credentialsId: 'netdeployer', url: 'https://github.com/ErnestoVC/PalMayorApi', branch: 'main'
       }
     }
     stage('Restore Packages') {
