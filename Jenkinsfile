@@ -46,7 +46,7 @@ pipeline {
     }
     stage('Generate report') {
       steps {
-        bat "C:\\Users\\netit\\Downloads\\ReportGenerator_4.8.7\netcoreapp3.0\\ReportGenerator.exe -reports:${WORKSPACE}\\TestResults\\xmlresults.coveragexml -targetdir:${WORKSPACE}\\CodeCoverage_${env.BUILD_NUMBER}
+        bat "C:\\Users\\netit\\Downloads\\ReportGenerator_4.8.7\netcoreapp3.0\\ReportGenerator.exe" -reports:${WORKSPACE}\\TestResults\\xmlresults.coveragexml -targetdir:${WORKSPACE}\\CodeCoverage_${env.BUILD_NUMBER}
       }
     }
     stage('Publish HTML report') {
