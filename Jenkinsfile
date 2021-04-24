@@ -44,16 +44,6 @@ pipeline {
       '''
       }        
     }
-    stage('Generate report') {
-      steps {
-        bat "C:\\Users\\netit\\Downloads\\ReportGenerator_4.8.7\netcoreapp3.0\\ReportGenerator.exe -reports:${WORKSPACE}\\TestResults\\xmlresults.coveragexml -targetdir:${WORKSPACE}\\CodeCoverage_${env.BUILD_NUMBER}"
-      }
-    }
-    stage('Publish HTML report') {
-      steps {
-        publishHTML(target: [allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'CodeCoverage_${BUILD_NUMBER}', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: 'Code Coverage Report'])
-      }
-    }
     stage('Publish'){
       steps{
         bat "dotnet publish ApiVP.Api\\ApiVP.Api.csproj"
